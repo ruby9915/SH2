@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/index.css">
+    <title>웹 페이지 제목</title>
+    <style>
+        .image-slider {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            z-index: 0;
+        }
+
+        .image-slider img {
+            display: none;
+            max-width: 100%;
+            height: auto;
+        }
+
+        .image-slider img.visible {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="/image/HStech_logo.png" alt=""  width="50">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+                <li><a href="#">메뉴3</a></li>
+                <li><a href="#">메뉴4</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <main>
+        <div class="image-slider">
+            <img src="/image/main-visual1.jpg" alt="이미지 1">
+            <img src="/image/main-visual3.jpg" alt="이미지 2">
+
+        </div>
+    </main>
+    
+    <footer>
+        <div class="contact-info">연락처 정보: tell: 010-3699-6434</div>
+        <div class="site-links">
+            <a href="https://euphonious-lolly-e5acc4.netlify.app/">한성테크</a>
+            <a href="http://ilsungtech.whost.co.kr/">일성테크</a>
+            <!-- 다른 사이트 링크들 추가 -->
+        </div>
+        <div class="social-icons">
+            <a href="#"><img src="naver-icon.png" alt="네이버"></a>
+            <a href="#"><img src="facebook-icon.png" alt="페이스북"></a>
+            <a href="#"><img src="twitter-icon.png" alt="트위터"></a>
+            <a href="#"><img src="instagram-icon.png" alt="인스타그램"></a>
+        </div>
+    </footer>
+
+    <script>
+        const imageSlider = document.querySelector(".image-slider");
+        const images = imageSlider.querySelectorAll("img");
+        let currentImageIndex = 0;
+        const interval = 2000; // 이미지를 변경하는 간격 (2초마다)
+
+        function changeImage() {
+            images[currentImageIndex].classList.remove("visible");
+            currentImageIndex = (currentImageIndex + 1) % images.length;
+            images[currentImageIndex].classList.add("visible");
+        }
+
+        setInterval(changeImage, interval);
+    </script>
+</body>
+</html>
